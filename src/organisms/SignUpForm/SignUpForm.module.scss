@@ -1,14 +1,14 @@
 @import "../../styles/global/globals.scss";
-.NewsLetter {
+.SignUpForm {
   display: flex;
   align-items: center;
   width: 35%;
   padding: 2rem 1rem;
-  & .NewsLetterContent {
+  & .SignUpFormContent {
     flex: 1;
   }
   & > div:first-child {
-    margin-right: 40px;
+    margin-right: 4rem;
   }
   @include mobile {
     & > div:first-child {
@@ -28,13 +28,13 @@
   @include desktop {
     justify-content: center;
     width: unset;
-    & .NewsLetterContent {
-      flex: unset;
-    }
-    & .NewsLetterForm {
+    // & .SignUpFormContent {
+    //   flex: unset;
+    // }
+    & .SignUpFormForm {
       margin: 1rem 0;
     }
-    & .NewsLetterFooter > div:last-child {
+    & .SignUpFormFooter > div:last-child {
       width: 81%;
     }
     & div div form div {
@@ -48,10 +48,10 @@
 
   @include tabletL {
     width: unset;
-    & .NewsLetterForm {
+    & .SignUpFormForm {
       margin: 1rem 0;
     }
-    & .NewsLetterFooter > div:last-child {
+    & .SignUpFormFooter > div:last-child {
       width: 81%;
     }
     & div div form div {
@@ -70,7 +70,7 @@
       margin: 1rem 0;
     }
 
-    & .NewsLetterFooter > div:last-child {
+    & .SignUpFormFooter > div:last-child {
       width: 81%;
     }
 
@@ -85,8 +85,8 @@
 }
 
 /*h1 font sizes are larger when no form is present*/
-.NewsLetter.NoForm {
-  width: 75%;
+.SignUpForm.NoForm {
+  // width: 75%;
   @include desktop {
     & h1 {
       font-size: 3.2rem;

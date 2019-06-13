@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Form from "../../atoms/Form/Form";
 import Button from "../../atoms/Button/Button";
 import ControlledInput from "../../atoms/ControlledInput/ControlledInput";
 import classes from "./FormMolecule.module.scss";
-import FooterMolecule from "../FooterMolecule/FooterMolecule";
 
 const FormMolecule = props => {
   const getInputFields = () => {
     return props.inputFields.map(
-      ({ input, placeholder, handleChange, type, value }, idx) => {
+      (
+        { inputProp, placeholder, handleChange, inputType, controlledValue },
+        idx
+      ) => {
         return (
           <ControlledInput
-            key={input + idx}
-            placeholder={input}
+            key={inputProp + idx}
+            placeholder={placeholder}
             handleChange={handleChange}
-            type={type}
-            value={value[input]}
-            input={input}
+            inputType={inputType}
+            controlledValue={controlledValue[inputProp]}
+            inputProp={inputProp}
           />
         );
       }
@@ -27,7 +29,11 @@ const FormMolecule = props => {
     <div className={classes.FormMolecule}>
       <Form>
         <div>{getInputFields()}</div>
-        <Button label={props.label} handleClick={props.handleClick} />
+        <Button
+          buttonText={props.buttonText}
+          handleClick={props.handleClick}
+          disabled={!props.footerCheckboxChecked}
+        />
       </Form>
     </div>
   );
@@ -36,14 +42,16 @@ const FormMolecule = props => {
 FormMolecule.propTypes = {
   inputFields: PropTypes.arrayOf(
     PropTypes.shape({
-      input: PropTypes.string,
+      controlledValue: PropTypes.object.isRequired,
+      inputType: PropTypes.string.isRequired,
+      handleChange: PropTypes.func.isRequired,
       placeholder: PropTypes.string,
-      handleChange: PropTypes.func,
-      value: PropTypes.object
+      required: PropTypes.bool,
+      inputProp: PropTypes.string
     })
   ).isRequired,
   handleClick: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired
+  buttonText: PropTypes.string.isRequired
 };
 
 export default FormMolecule;

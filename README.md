@@ -2,7 +2,7 @@ NewsLetter Sign Up Page.
 
 ## Notes:
 
-### Mobile layout is working for all device sizes over 360px. Mobile Layout is breaking for devices iphone 5 only.
+### Mobile layout is working for all device sizes over 360px. Mobile Layout is breaking for smaller devices like iphone 5 only.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

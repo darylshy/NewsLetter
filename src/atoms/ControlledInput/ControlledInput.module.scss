@@ -6,7 +6,7 @@
   border-radius: $border-radius;
   font-family: "Azo-Sans";
   padding: 10px;
-  text-transform: capitalize;
+  // text-transform: capitalize;
   @include desktop {
     font-size: 2.4rem;
   }

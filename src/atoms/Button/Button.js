@@ -4,15 +4,20 @@ import classes from "./Button.module.scss";
 
 const Button = props => {
   return (
-    <button className={classes.Button} onClick={props.handleClick}>
-      {props.label.toUpperCase()}
+    <button
+      className={classes.Button}
+      onClick={props.handleClick}
+      disabled={props.disabled}
+    >
+      {props.buttonText.toUpperCase()}
     </button>
   );
 };
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired,
-  handleClick: PropTypes.func.isRequired
+  buttonText: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool
 };
 
 export default Button;

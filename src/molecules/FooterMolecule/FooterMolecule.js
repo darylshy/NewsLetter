@@ -9,11 +9,11 @@ const FooterMolecule = props => {
   return (
     <div className={classes.FooterMolecule}>
       <div>
-        <Checkbox />
+        <Checkbox handleChecked={props.footerCheckboxChangeHandler} />
       </div>
       <div>
         <Paragraph text={props.paragraph}>
-          <Anchor text={props.anchor} />
+          <Anchor text={props.anchor} link={props.link} />
         </Paragraph>
       </div>
     </div>
@@ -22,7 +22,9 @@ const FooterMolecule = props => {
 
 FooterMolecule.propTypes = {
   paragraph: PropTypes.string.isRequired,
-  anchor: PropTypes.string
+  anchor: PropTypes.string,
+  footerCheckboxChangeHandler: PropTypes.func,
+  link: PropTypes.string
 };
 
 export default FooterMolecule;

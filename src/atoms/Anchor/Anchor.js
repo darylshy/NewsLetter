@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classes from "./Anchor.module.scss";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Anchor = props => {
   return (
-    <a className={classes.Anchor} href="#">
+    <Link to={`/${props.link}`} className={classes.Anchor}>
       {props.text}
-    </a>
+    </Link>
   );
 };
 

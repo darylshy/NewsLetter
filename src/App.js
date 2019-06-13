@@ -1,52 +1,37 @@
-import React, { useState } from "react";
-import NewsLetter from "./organisms/NewsLetter/NewsLetter";
+import React from "react";
+import classes from "./App.module.scss";
+import { Route, Switch } from "react-router-dom";
+import { withRouter } from "react-router";
+import Email from "./components/Email/Email";
+import Username from "./components/Username/Username";
+import Complete from "./components/Complete/Complete";
+import { COMPONENT_TYPES } from "./constants/constants";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 
-const App = () => {
-  const [inputValue, setInputValue] = useState({});
-  const [formSubmitValue, setFormSubmitValue] = useState({});
-
-  const handleChange = e => {
-    const inputVal = Object.assign({}, { ...inputValue });
-    inputVal[e.target.dataset.type] = e.target.value;
-    setInputValue(inputVal);
-  };
-
-  const handleClick = e => {
-    console.log(e);
-    setFormSubmitValue(e.target);
-  };
-
+const App = props => {
   return (
-    <div
-      className="App"
-      style={{
-        background: "#131122",
-        padding: "10px",
-        display: "flex",
-        justifyContent: "center"
-      }}
-    >
-      <NewsLetter
-        labelText="Congratulations!"
-        header="Thank you for signing up!"
-        subheader="Look out for the latest news on your favorite shows."
-        // formLabelText="sign up"
-        formButtonClickHandler={handleClick}
-        formInputFields={[
-          {
-            input: "first name",
-            handleChange,
-            type: "text",
-            value: inputValue
-          },
-          { input: "last name", handleChange, type: "text", value: inputValue }
-        ]}
-        // footerParagraphText="I agree to receive information from Discovery Communications in accordance with the following"
-        footerLinkText="Privacy Policy"
-        footerLinkEndpoint="privacy"
-      />
+    <div className={["App", classes.App].join(" ")}>
+      <Switch>
+        <Route path="/" exact component={() => <Email {...props} />} />
+        <Route
+          path={`/${COMPONENT_TYPES.NAME}`}
+          exact
+          component={() => <Username {...props} />}
+        />
+        <Route
+          path={`/${COMPONENT_TYPES.COMPLETE}`}
+          exact
+          component={() => <Complete {...props} />}
+        />
+        <Route
+          path={`/${COMPONENT_TYPES.PRIVACY}`}
+          exact
+          component={() => <PrivacyPolicy />}
+        />
+        <Route path="*" exact component={() => <Email {...props} />} />
+      </Switch>
     </div>
   );
 };
 
-export default App;
+export default withRouter(App);

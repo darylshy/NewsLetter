@@ -6,12 +6,12 @@ const Input = props => {
   return (
     <input
       className={classes.ControlledInput}
-      type={props.type}
+      type={props.inputType}
       onChange={props.handleChange}
       placeholder={props.placeholder}
-      value={props.value}
+      value={props.controlledValue}
       required={props.required}
-      data-type={props.input}
+      data-type={props.inputProp}
     />
   );
 };
@@ -19,15 +19,16 @@ const Input = props => {
 Input.defaultProps = {
   placeholder: "Enter text:",
   required: true,
-  value: ""
+  controlledValue: ""
 };
 
 Input.propTypes = {
-  value: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  controlledValue: PropTypes.string.isRequired,
+  inputType: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  inputProp: PropTypes.string
 };
 
 export default Input;
