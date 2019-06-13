@@ -1,0 +1,17 @@
+@import "../../styles/global/globals.scss";
+.Subheader {
+  font-family: "Azo-Sans-Light";
+  margin: 0;
+  @include desktop {
+    font-size: 2.6rem;
+  }
+  @include tabletL {
+    font-size: 2rem;
+  }
+  @include tabletP {
+    font-size: 2rem;
+  }
+  @include mobile {
+    font-size: 1.8rem;
+  }
+}

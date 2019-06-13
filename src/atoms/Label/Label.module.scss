@@ -1,0 +1,18 @@
+@import "../../styles/global/globals.scss";
+.Label {
+  font-family: "Elaine_D02";
+  color: $font-green;
+  font-size: $font-size-default;
+  @include desktop {
+    font-size: 6rem;
+  }
+  @include tabletL {
+    font-size: 6rem;
+  }
+  @include tabletP {
+    font-size: 5rem;
+  }
+  @include mobile {
+    font-size: 3.6rem;
+  }
+}

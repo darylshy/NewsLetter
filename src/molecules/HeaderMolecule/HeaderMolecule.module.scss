@@ -1,0 +1,15 @@
+@import "../../styles/global/globals.scss";
+.ComboHeader {
+  @include desktop {
+    text-align: left;
+  }
+  @include tabletL {
+    text-align: left;
+  }
+  @include tabletP {
+    text-align: center;
+  }
+  @include mobile {
+    text-align: center;
+  }
+}

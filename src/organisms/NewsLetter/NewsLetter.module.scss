@@ -1,0 +1,111 @@
+@import "../../styles/global/globals.scss";
+.NewsLetter {
+  display: flex;
+  align-items: center;
+  width: 35%;
+  padding: 2rem 1rem;
+  & .NewsLetterContent {
+    flex: 1;
+  }
+  & > div:first-child {
+    margin-right: 40px;
+  }
+  @include mobile {
+    & > div:first-child {
+      margin: unset;
+    }
+    & div div form input {
+      margin: 1rem 0;
+    }
+    flex-direction: column;
+    width: unset;
+    & div div form button {
+      align-self: unset;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @include desktop {
+    justify-content: center;
+    width: unset;
+    & .NewsLetterContent {
+      flex: unset;
+    }
+    & .NewsLetterForm {
+      margin: 1rem 0;
+    }
+    & .NewsLetterFooter > div:last-child {
+      width: 81%;
+    }
+    & div div form div {
+      flex: 1;
+      & input {
+        flex: 1;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  @include tabletL {
+    width: unset;
+    & .NewsLetterForm {
+      margin: 1rem 0;
+    }
+    & .NewsLetterFooter > div:last-child {
+      width: 81%;
+    }
+    & div div form div {
+      flex: 1;
+      & input {
+        flex: 1;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  @include tabletP {
+    flex-direction: column;
+    width: unset;
+    & h1 {
+      margin: 1rem 0;
+    }
+
+    & .NewsLetterFooter > div:last-child {
+      width: 81%;
+    }
+
+    & div div form div {
+      flex: 1;
+      & input {
+        flex: 1;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+/*h1 font sizes are larger when no form is present*/
+.NewsLetter.NoForm {
+  width: 75%;
+  @include desktop {
+    & h1 {
+      font-size: 3.2rem;
+    }
+  }
+  @include tabletL {
+    & h1 {
+      font-size: 2.8rem;
+    }
+  }
+  @include tabletP {
+    & h1 {
+      font-size: 2.8rem;
+    }
+  }
+  @include mobile {
+    & h1 {
+      font-size: 2.4rem;
+      margin: 1.5rem 0;
+    }
+  }
+}

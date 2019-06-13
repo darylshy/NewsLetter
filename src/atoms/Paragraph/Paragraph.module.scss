@@ -1,0 +1,18 @@
+@import "../../styles/global/globals.scss";
+.Paragraph {
+  font-family: "Azo-Sans-Light";
+  color: $font-grey;
+  margin: 0;
+  @include desktop {
+    font-size: 1.2rem;
+  }
+  @include tabletL {
+    font-size: 1.2rem;
+  }
+  @include tabletP {
+    font-size: 1.2rem;
+  }
+  @include mobile {
+    font-size: 1.2rem;
+  }
+}

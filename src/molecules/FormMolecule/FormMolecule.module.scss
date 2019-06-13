@@ -1,0 +1,57 @@
+@import "../../styles/global/globals.scss";
+.FormMolecule {
+  & form {
+    display: flex;
+    & button {
+      margin-left: 2rem;
+      align-self: flex-start;
+    }
+    & div {
+      margin-bottom: 0.5rem;
+      display: flex;
+      & > input {
+        flex-grow: 1;
+        &:first-child {
+          margin-right: 0.5rem;
+        }
+        &:not(:first-child) {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+
+  @include desktop {
+    & form {
+      & div {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include tabletL {
+    & form {
+      & div {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include tabletP {
+    & form {
+      justify-content: center;
+      div {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include mobile {
+    & form {
+      flex-direction: column;
+      & button {
+        margin-left: 0;
+      }
+    }
+  }
+}

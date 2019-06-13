@@ -1,0 +1,43 @@
+/* colors */
+$font-grey: #94aebf;
+$font-green: #b6fdbf;
+$font-white-trans40: rgba(255, 255, 255, 0.4);
+$background-white-trans10: rgba(255, 255, 255, 0.1);
+$danger-red: #ed1f34;
+
+/* font-size */
+$font-size-default: 1.6rem;
+
+/* border-radius */
+$border-radius: 0.5rem;
+
+/* device width */
+$desktop-width: 1445px;
+$tabletL-width: 1027px;
+$tabletP-width: 768px;
+$mobile-width: 320px;
+
+/* breakpoints */
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin tabletL {
+  @media (min-width: #{$tabletL-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tabletP {
+  @media (min-width: #{$tabletP-width}) and (max-width: #{$tabletL-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tabletP-width - 1px}) {
+    @content;
+  }
+}

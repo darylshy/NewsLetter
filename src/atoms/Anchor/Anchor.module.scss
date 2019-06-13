@@ -1,0 +1,17 @@
+@import "../../styles/global/globals.scss";
+.Anchor {
+  font-family: "Azo-Sans-Light";
+  color: $font-grey;
+  @include desktop {
+    font-size: 1.2rem;
+  }
+  @include tabletL {
+    font-size: 1.2rem;
+  }
+  @include tabletP {
+    font-size: 1.2rem;
+  }
+  @include mobile {
+    font-size: 1.2rem;
+  }
+}

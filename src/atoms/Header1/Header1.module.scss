@@ -1,0 +1,17 @@
+@import "../../styles/global/globals.scss";
+.Header1 {
+  font-family: "Azo-Sans-Bold";
+  margin: 0;
+  @include desktop {
+    font-size: 2.4rem;
+  }
+  @include tabletL {
+    font-size: 2rem;
+  }
+  @include tabletP {
+    font-size: 2rem;
+  }
+  @include mobile {
+    font-size: 2rem;
+  }
+}
