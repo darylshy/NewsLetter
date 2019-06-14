@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Label from "../../atoms/Label/Label";
-import HeaderMolecule from "../../molecules/HeaderMolecule/HeaderMolecule";
-import FormMolecule from "../../molecules/FormMolecule/FormMolecule";
-import FooterMolecule from "../../molecules/FooterMolecule/FooterMolecule";
-import classes from "./SignUpForm.module.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Label from '../../atoms/Label/Label';
+import HeaderMolecule from '../../molecules/HeaderMolecule/HeaderMolecule';
+import FormMolecule from '../../molecules/FormMolecule/FormMolecule';
+import FooterMolecule from '../../molecules/FooterMolecule/FooterMolecule';
+import classes from './SignUpForm.module.scss';
 
 const SignUpForm = ({
   labelText,
@@ -23,8 +23,8 @@ const SignUpForm = ({
     <div
       className={[
         classes.SignUpForm,
-        !formButtonText ? classes.NoForm : ""
-      ].join(" ")}
+        !formButtonText ? classes.NoForm : ''
+      ].join(' ')}
     >
       {labelText && (
         <div>

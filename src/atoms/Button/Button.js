@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classes from "./Button.module.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classes from './Button.module.scss';
 
 const Button = props => {
   return (

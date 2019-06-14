@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Checkbox from "../../atoms/Checkbox/Checkbox";
-import Paragraph from "../../atoms/Paragraph/Paragraph";
-import Anchor from "../../atoms/Anchor/Anchor";
-import classes from "./FooterMolecule.module.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Checkbox from '../../atoms/Checkbox/Checkbox';
+import Paragraph from '../../atoms/Paragraph/Paragraph';
+import Anchor from '../../atoms/Anchor/Anchor';
+import classes from './FooterMolecule.module.scss';
 
 const FooterMolecule = props => {
   return (

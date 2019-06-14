@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classes from "./EmailTemplate.module.scss";
-import SignUpForm from "../../organisms/SignUpForm/SignUpForm";
-import Email from "../../components/Email/Email";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classes from './EmailTemplate.module.scss';
+import SignUpForm from '../../organisms/SignUpForm/SignUpForm';
+import Email from '../../components/Email/Email';
 
 const EmailTemplate = ({
   labelText,

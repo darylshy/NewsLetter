@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classes from "./ControlledInput.module.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classes from './ControlledInput.module.scss';
 
 const Input = props => {
   return (
@@ -17,9 +17,9 @@ const Input = props => {
 };
 
 Input.defaultProps = {
-  placeholder: "Enter text:",
+  placeholder: 'Enter text:',
   required: true,
-  controlledValue: ""
+  controlledValue: ''
 };
 
 Input.propTypes = {

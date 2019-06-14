@@ -1,18 +1,18 @@
-import React, { lazy, Suspense } from "react";
-import classes from "./App.module.scss";
-import { Route, Switch } from "react-router-dom";
-import { withRouter } from "react-router";
-import { COMPONENT_TYPES } from "./constants/constants";
-import Email from "./components/Email/Email";
-const Username = lazy(() => import("./components/Username/Username"));
-const Complete = lazy(() => import("./components/Complete/Complete"));
+import React, { lazy, Suspense } from 'react';
+import classes from './App.module.scss';
+import { Route, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import { COMPONENT_TYPES } from './constants/constants';
+import Email from './components/Email/Email';
+const Username = lazy(() => import('./components/Username/Username'));
+const Complete = lazy(() => import('./components/Complete/Complete'));
 const PrivacyPolicy = lazy(() =>
-  import("./components/PrivacyPolicy/PrivacyPolicy")
+  import('./components/PrivacyPolicy/PrivacyPolicy')
 );
 
 const App = props => {
   return (
-    <div className={["App", classes.App].join(" ")}>
+    <div className={['App', classes.App].join(' ')}>
       <Switch>
         <Route path="/" exact component={() => <Email {...props} />} />
         <Suspense fallback={<h1>Loading...</h1>}>

@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classes from "./Subheader.module.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classes from './Subheader.module.scss';
 
 const Subheader = props => {
   return <h3 className={classes.Subheader}>{props.subheader}</h3>;

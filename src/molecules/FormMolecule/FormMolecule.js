@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import Form from "../../atoms/Form/Form";
-import Button from "../../atoms/Button/Button";
-import ControlledInput from "../../atoms/ControlledInput/ControlledInput";
-import classes from "./FormMolecule.module.scss";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import Form from '../../atoms/Form/Form';
+import Button from '../../atoms/Button/Button';
+import ControlledInput from '../../atoms/ControlledInput/ControlledInput';
+import classes from './FormMolecule.module.scss';
 
 const FormMolecule = props => {
   const getInputFields = () => {

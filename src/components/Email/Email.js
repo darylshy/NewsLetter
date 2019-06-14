@@ -1,21 +1,24 @@
-import React, { useState, useEffect, useRef } from "react";
-import EmailTemplate from "../../templates/EmailTemplate/EmailTemplate";
-import { verbiage } from "../../constants/verbiage";
-import { connect } from "react-redux";
+import React, { useState, useEffect, useRef } from 'react';
+import EmailTemplate from '../../templates/EmailTemplate/EmailTemplate';
+import { verbiage } from '../../constants/verbiage';
+import { connect } from 'react-redux';
 import {
   INPUT_TYPES,
   INPUT_PROPS,
   COMPONENT_TYPES
-} from "../../constants/constants";
-import * as actions from "../../store/actions";
-import classes from "./Email.module.scss";
+} from '../../constants/constants';
+import * as actions from '../../store/actions';
+import classes from './Email.module.scss';
 
 const Email = props => {
   const emailRef = useRef(null);
   const [inputValue, setInputValue] = useState({ dirty: false });
+  const regexEmail =
+    '^(([^<>()[]\\.,;:s@"]+(.[^<>()[]\\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$';
   useEffect(() => {
-    const emailInput = emailRef.current.querySelector("input");
-    const formDiv = emailRef.current.querySelector("form > div");
+    const emailInput = emailRef.current.querySelector('input');
+    emailInput.setAttribute('pattern', regexEmail);
+    const formDiv = emailRef.current.querySelector('form > div');
     const isValid = emailInput.checkValidity();
     if (isValid) {
       emailInput.classList.add(classes.Valid);
@@ -41,14 +44,10 @@ const Email = props => {
     setInputValue(inputVal);
   };
 
-  const isValidEmail = email => {
-    var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regex.test(String(email).toLowerCase());
-  };
-
   const handleClick = e => {
     e.preventDefault();
-    if (isValidEmail(inputValue.email)) {
+    const emailInput = emailRef.current.querySelector('input');
+    if (emailInput.checkValidity()) {
       props.onSetUserEmail(inputValue.email);
       props.history.push(`/${COMPONENT_TYPES.NAME}`);
     }

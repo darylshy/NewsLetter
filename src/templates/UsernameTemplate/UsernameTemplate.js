@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classes from "./UsernameTemplate.module.scss";
-import SignUpForm from "../../organisms/SignUpForm/SignUpForm";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classes from './UsernameTemplate.module.scss';
+import SignUpForm from '../../organisms/SignUpForm/SignUpForm';
 
 const UsernameTemplate = ({
   labelText,

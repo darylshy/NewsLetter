@@ -1,27 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
-import UsernameTemplate from "../../templates/UsernameTemplate/UsernameTemplate";
-import { verbiage } from "../../constants/verbiage";
-import * as actions from "../../store/actions";
-import classes from "./Username.module.scss";
+import React, { useState, useEffect, useRef } from 'react';
+import UsernameTemplate from '../../templates/UsernameTemplate/UsernameTemplate';
+import { verbiage } from '../../constants/verbiage';
+import * as actions from '../../store/actions';
+import classes from './Username.module.scss';
 import {
   INPUT_TYPES,
   INPUT_PROPS,
   COMPONENT_TYPES
-} from "../../constants/constants";
-import { connect } from "react-redux";
+} from '../../constants/constants';
+import { connect } from 'react-redux';
 
 const Username = props => {
   const [inputValue, setInputValue] = useState({ dirty: false });
   const usernameRef = useRef(null);
   const regexValidName = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
   useEffect(() => {
-    const [firstname, lastname] = usernameRef.current.querySelectorAll("input");
-    firstname.setAttribute("pattern", regexValidName);
-    lastname.setAttribute("pattern", regexValidName);
+    const [firstname, lastname] = usernameRef.current.querySelectorAll('input');
+    firstname.setAttribute('pattern', regexValidName);
+    lastname.setAttribute('pattern', regexValidName);
   }, []);
   useEffect(() => {
-    const [firstname, lastname] = usernameRef.current.querySelectorAll("input");
-    const formDiv = usernameRef.current.querySelector("form > div");
+    const [firstname, lastname] = usernameRef.current.querySelectorAll('input');
+    const formDiv = usernameRef.current.querySelector('form > div');
     addRemoveClassName(firstname, formDiv);
     addRemoveClassName(lastname, formDiv);
   }, [inputValue]);
@@ -54,7 +54,8 @@ const Username = props => {
   };
 
   const handleClick = e => {
-    if (inputValue.firstname && inputValue.lastname) {
+    const [firstname, lastname] = usernameRef.current.querySelectorAll('input');
+    if (firstname.checkValidity() && lastname.checkValidity()) {
       props.onSetUsername(inputValue);
       logUserInfo();
       props.history.push(`/${COMPONENT_TYPES.COMPLETE}`);

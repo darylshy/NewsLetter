@@ -1,10 +1,10 @@
-import * as actionTypes from "./actions";
+import * as actionTypes from './actions';
 
 const initialState = {
   userInfo: {
-    firstname: "",
-    lastname: "",
-    email: ""
+    firstname: '',
+    lastname: '',
+    email: ''
   },
   privacy: false
 };
