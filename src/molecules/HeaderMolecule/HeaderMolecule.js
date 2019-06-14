@@ -10,7 +10,7 @@ const ComboHeader = props => {
     <div className={classes.ComboHeader}>
       <Header>
         <Header1 header={props.header} />
-        {props.subheader ? <Subheader subheader={props.subheader} /> : null}
+        {props.subheader && <Subheader subheader={props.subheader} />}
       </Header>
     </div>
   );

@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classes from "./Anchor.module.scss";
-import { Link } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classes from './Anchor.module.scss';
+import { Link } from 'react-router-dom';
 
 const Anchor = props => {
   return (
@@ -9,6 +9,10 @@ const Anchor = props => {
       {props.text}
     </Link>
   );
+};
+
+Anchor.defaultProps = {
+  text: 'Link'
 };
 
 Anchor.propTypes = {

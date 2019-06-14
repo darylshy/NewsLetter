@@ -9,9 +9,13 @@ const Button = props => {
       onClick={props.handleClick}
       disabled={props.disabled}
     >
-      {props.buttonText.toUpperCase()}
+      {props.buttonText ? props.buttonText.toUpperCase() : 'SUBMIT'}
     </button>
   );
+};
+
+Button.defaultProps = {
+  buttonText: 'submit'
 };
 
 Button.propTypes = {

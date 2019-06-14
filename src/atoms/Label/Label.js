@@ -6,6 +6,10 @@ const Label = props => {
   return <div className={classes.Label}>{props.label}</div>;
 };
 
+Label.defaultProps = {
+  label: 'Label'
+};
+
 Label.propTypes = {
   label: PropTypes.string.isRequired
 };
