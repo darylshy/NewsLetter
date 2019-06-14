@@ -1,0 +1,48 @@
+@import "../../styles/global/globals.scss";
+.Email {
+  & form > div {
+    position: relative;
+  }
+
+  & button {
+    position: relative;
+    &:disabled:hover:after {
+      content: "Please select checkbox before proceeding";
+      position: absolute;
+      font-family: "Azo-Sans-Light";
+      text-align: left;
+      font-size: 1rem;
+      top: -3rem;
+      right: 0;
+      @include mobile {
+        top: -1.4rem;
+        right: 0;
+      }
+    }
+  }
+}
+
+.Email form > div.Invalid:after {
+  content: "Email is invalid.";
+  position: absolute;
+  font-family: "Azo-Sans-Light";
+  font-size: 1rem;
+  color: $danger-red;
+  width: 100%;
+  bottom: -0.3rem;
+  left: 0.3rem;
+}
+
+.Email input.Valid {
+  border: 1px solid $font-green;
+  &:focus {
+    outline-color: $font-green;
+  }
+}
+
+.Email input.Invalid {
+  border: 2px solid $danger-red;
+  &:focus {
+    outline-color: $danger-red;
+  }
+}

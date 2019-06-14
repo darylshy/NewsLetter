@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import EmailTemplate from "../../templates/EmailTemplate/EmailTemplate";
 import { verbiage } from "../../constants/verbiage";
 import { connect } from "react-redux";
@@ -8,12 +8,36 @@ import {
   COMPONENT_TYPES
 } from "../../constants/constants";
 import * as actions from "../../store/actions";
+import classes from "./Email.module.scss";
 
 const Email = props => {
-  const [inputValue, setInputValue] = useState({});
+  const emailRef = useRef(null);
+  const [inputValue, setInputValue] = useState({ dirty: false });
+  useEffect(() => {
+    const emailInput = emailRef.current.querySelector("input");
+    const formDiv = emailRef.current.querySelector("form > div");
+    const isValid = emailInput.checkValidity();
+    if (isValid) {
+      emailInput.classList.add(classes.Valid);
+      emailInput.classList.remove(classes.Invalid);
+      formDiv.classList.add(classes.Valid);
+      formDiv.classList.remove(classes.Invalid);
+    } else if (!isValid && !inputValue.dirty) {
+      emailInput.classList.remove(classes.Valid);
+      emailInput.classList.remove(classes.Invalid);
+      formDiv.classList.add(classes.Valid);
+      formDiv.classList.remove(classes.Invalid);
+    } else {
+      emailInput.classList.add(classes.Invalid);
+      emailInput.classList.remove(classes.Valid);
+      formDiv.classList.add(classes.Invalid);
+      formDiv.classList.remove(classes.Valid);
+    }
+  }, [inputValue]);
   const handleChange = e => {
     const inputVal = Object.assign({}, { ...inputValue });
     inputVal[e.target.dataset.type] = e.target.value;
+    inputVal.dirty = true;
     setInputValue(inputVal);
   };
 
@@ -23,7 +47,7 @@ const Email = props => {
   };
 
   const handleClick = e => {
-    console.log("email");
+    e.preventDefault();
     if (isValidEmail(inputValue.email)) {
       props.onSetUserEmail(inputValue.email);
       props.history.push(`/${COMPONENT_TYPES.NAME}`);
@@ -35,28 +59,30 @@ const Email = props => {
   };
 
   return (
-    <EmailTemplate
-      key={verbiage.join}
-      labelText={verbiage.join}
-      formButtonText={verbiage.next}
-      header={verbiage.signupForNewsLetter}
-      formButtonClickHandler={handleClick}
-      formInputFields={[
-        {
-          controlledValue: inputValue,
-          inputType: INPUT_TYPES.EMAIL,
-          handleChange: handleChange,
-          placeholder: verbiage.email,
-          required: true,
-          inputProp: INPUT_PROPS.EMAIL
-        }
-      ]}
-      footerCheckboxChecked={props.privacyChecked}
-      footerCheckboxChangeHandler={handleChecked}
-      footerParagraphText={verbiage.agreement}
-      footerLinkText={verbiage.privacyPolicy}
-      footerLinkEndpoint={COMPONENT_TYPES.PRIVACY}
-    />
+    <div className={classes.Email} ref={emailRef}>
+      <EmailTemplate
+        key={verbiage.join}
+        labelText={verbiage.join}
+        formButtonText={verbiage.next}
+        header={verbiage.signupForNewsLetter}
+        formButtonClickHandler={handleClick}
+        formInputFields={[
+          {
+            controlledValue: inputValue,
+            inputType: INPUT_TYPES.EMAIL,
+            handleChange: handleChange,
+            placeholder: verbiage.email,
+            required: true,
+            inputProp: INPUT_PROPS.EMAIL
+          }
+        ]}
+        footerCheckboxChecked={props.privacyChecked}
+        footerCheckboxChangeHandler={handleChecked}
+        footerParagraphText={verbiage.agreement}
+        footerLinkText={verbiage.privacyPolicy}
+        footerLinkEndpoint={COMPONENT_TYPES.PRIVACY}
+      />
+    </div>
   );
 };
 

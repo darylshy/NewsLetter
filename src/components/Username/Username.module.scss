@@ -1,0 +1,31 @@
+@import "../../styles/global/globals.scss";
+.Username {
+  & form > div {
+    position: relative;
+  }
+}
+
+.Username form > div.Invalid:after {
+  content: "Username is invalid.";
+  position: absolute;
+  font-family: "Azo-Sans-Light";
+  font-size: 1rem;
+  color: $danger-red;
+  width: 100%;
+  bottom: -0.3rem;
+  left: 0.3rem;
+}
+
+.Username input.Valid {
+  border: 1px solid $font-green;
+  &:focus {
+    outline-color: $font-green;
+  }
+}
+
+.Username input.Invalid {
+  border: 2px solid $danger-red;
+  &:focus {
+    outline-color: $danger-red;
+  }
+}
